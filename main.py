@@ -123,7 +123,6 @@ while running:
 
     window.fill((255, 255, 255))
     printed_word = ""
-
     for letter in res:
         if letter in founded_letters:
             printed_word += letter + " "
