@@ -14,7 +14,7 @@ word = word.readlines()
 list_count = len(word) - 1
 num = random.randint(0, list_count)
 
-print(word[num])
+#print(word[num])
 
 res = ''.join(word[num].splitlines())
 
@@ -122,8 +122,8 @@ while running:
             pass
 
     window.fill((255, 255, 255))
-
     printed_word = ""
+
     for letter in res:
         if letter in founded_letters:
             printed_word += letter + " "
