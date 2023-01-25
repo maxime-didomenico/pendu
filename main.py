@@ -22,8 +22,6 @@ errors_letter = []
 errors = 0
 win = 0
 
-print(res)
-
 def hangman(num):
     global win
     global win_count
@@ -113,7 +111,6 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-            #win_list.append(res[i])
         if event.type == pygame.KEYDOWN and ((event.unicode >= 'a' and event.unicode <= 'z') or (event.unicode >= 'A' and event.unicode <= 'Z')) and menu == 0:
             letter = event.unicode
             if letter in win_list:
