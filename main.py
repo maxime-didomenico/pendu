@@ -1,6 +1,5 @@
 import random
 import pygame
-import time
 
 pygame.init()
 window = pygame.display.set_mode((500,600))
@@ -168,7 +167,7 @@ while running:
                         if (event.unicode >= 'a' and event.unicode <= 'z') or (event.unicode >= 'A' and event.unicode <= 'Z'):
                             letter = event.unicode
                             new_word.append(letter)
-                            
+
                         elif event.key == pygame.K_BACKSPACE:
                             if len(new_word) > 0:
                                 new_word = new_word[:-1]
@@ -213,17 +212,20 @@ while running:
             errors_text = pygame.font.Font(None, 36).render("Wrong letters : " + ' '.join(errors_letter), True, (0, 0, 0))
             window.blit(errors_text, (50, 100))
 
-        elif win == win_count:
+        if win == win_count:
             hangman(errors)
             you_win = pygame.font.Font(None, 36).render("You Win !", True, (0, 0, 0))
             window.blit(you_win, (190, 250))
-            running = False
+            check = 1
+            pygame.event.clear()
+            event = pygame.event.wait()
 
-        elif errors >= 10:
+        if errors >= 10:
             hangman(errors)
             game_over = pygame.font.Font(None, 36).render("You Loose...", True, (0, 0, 0))
             window.blit(game_over, (190, 250))
-            running = False
+            check = 1
+            event = pygame.event.wait()
 
 
     pygame.display.update()
